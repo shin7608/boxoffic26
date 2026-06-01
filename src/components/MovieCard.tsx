@@ -3,8 +3,9 @@ import { DailyBoxOffice } from "../types";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 interface MovieCardProps {
+  key?: string | number;
   movie: DailyBoxOffice;
-  onClick: (movie: DailyBoxOffice) => void;
+  onClick: (movie: DailyBoxOffice) => void | Promise<void>;
   index: number;
 }
 

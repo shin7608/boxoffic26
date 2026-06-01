@@ -1,4 +1,4 @@
-import { BoxOfficeResponse, DailyBoxOffice, MovieInfoResponse, MovieInfo } from "../types";
+import { BoxOfficeResponse, DailyBoxOffice, MovieInfoResponse, MovieInfo } from "./types";
 
 export const fetchBoxOffice = async (date: string): Promise<DailyBoxOffice[]> => {
   const targetDt = date.replace(/-/g, "");
