@@ -32,9 +32,9 @@ export function MovieModal({ movieInfo, isOpen, onClose, isLoading, title }: Mov
     try {
       const result = await generateReview(title, simpleReview);
       setGeneratedReview(result);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      setGeneratedReview("오류가 발생했습니다. 다시 시도해주세요.");
+      setGeneratedReview(error?.message || "오류가 발생했습니다. 다시 시도해주세요.");
     } finally {
       setIsGenerating(false);
     }

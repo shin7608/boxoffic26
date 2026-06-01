@@ -35,7 +35,12 @@ export const generateReview = async (movieTitle: string, simpleReview: string): 
   });
   
   if (!res.ok) {
-    throw new Error("Failed to generate review");
+    try {
+      const errData = await res.json();
+      throw new Error(errData.error || "Failed to generate review");
+    } catch (e: any) {
+      throw new Error(e.message || "Failed to generate review");
+    }
   }
 
   const data = await res.json();
